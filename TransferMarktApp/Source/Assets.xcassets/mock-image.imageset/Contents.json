@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "jonas-hector-1fc-koln-2022-1648208910-82680.jpeg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

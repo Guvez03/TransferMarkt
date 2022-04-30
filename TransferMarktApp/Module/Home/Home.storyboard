@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" id="Y6W-OH-hqX" customClass="HomeViewController" customModule="TransferMarktApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yfX-2a-NuI">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dhz-TA-LGY">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DjF-hi-ktb" customClass="HeaderView" customModule="TransferMarktApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="V0r-y8-VXm"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dk5-jw-7f9" customClass="BannerView" customModule="TransferMarktApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="50" width="414" height="200"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="200" id="rMH-Pj-9ys"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GtL-hk-74m" customClass="HeaderView" customModule="TransferMarktApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="270" width="414" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="X8A-WZ-3YC"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X21-hQ-gLf" customClass="ResultView" customModule="TransferMarktApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="320" width="414" height="576"/>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="dhz-TA-LGY" firstAttribute="top" secondItem="qTG-xY-Xd9" secondAttribute="top" id="Fni-bt-Opb"/>
+                                    <constraint firstItem="dhz-TA-LGY" firstAttribute="height" secondItem="ugJ-Qo-3SC" secondAttribute="height" priority="250" id="Ibi-DV-OHD"/>
+                                    <constraint firstAttribute="bottom" secondItem="dhz-TA-LGY" secondAttribute="bottom" id="YSq-eQ-3GM"/>
+                                    <constraint firstItem="dhz-TA-LGY" firstAttribute="trailing" secondItem="qTG-xY-Xd9" secondAttribute="trailing" id="cE0-nd-d0R"/>
+                                    <constraint firstItem="dhz-TA-LGY" firstAttribute="width" secondItem="ugJ-Qo-3SC" secondAttribute="width" id="dwT-P0-rkr"/>
+                                    <constraint firstItem="qTG-xY-Xd9" firstAttribute="leading" secondItem="dhz-TA-LGY" secondAttribute="leading" id="z49-I6-CkW"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="qTG-xY-Xd9"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="ugJ-Qo-3SC"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="backgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yfX-2a-NuI" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="LLu-m7-cE0"/>
+                            <constraint firstItem="yfX-2a-NuI" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailing" id="NT7-eA-dcE"/>
+                            <constraint firstItem="yfX-2a-NuI" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="wwa-Z8-mk0"/>
+                            <constraint firstItem="yfX-2a-NuI" firstAttribute="bottom" secondItem="5EZ-qb-Rvc" secondAttribute="bottom" id="xOR-mn-sgM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bannerView" destination="Dk5-jw-7f9" id="JGr-Yh-eli"/>
+                        <outlet property="newsHeaderView" destination="DjF-hi-ktb" id="sAN-oJ-TKH"/>
+                        <outlet property="resultHeaderView" destination="GtL-hk-74m" id="ci8-sf-lru"/>
+                        <outlet property="resultView" destination="X21-hQ-gLf" id="InZ-TU-r1D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="65.625"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="backgroundColor">
+            <color red="0.9649999737739563" green="0.96899998188018799" blue="0.98400002717971802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

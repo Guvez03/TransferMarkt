@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Clubs View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="ClubsViewController" id="Y6W-OH-hqX" customClass="ClubsViewController" customModule="TransferMarktApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gi-zI-gk1">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dm3-G8-VxO">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x6M-CU-aEq" customClass="FilterView" customModule="TransferMarktApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="slG-gT-lqw"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cxa-Ae-Ccp" customClass="ClubsView" customModule="TransferMarktApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="80" width="414" height="772"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="dm3-G8-VxO" firstAttribute="leading" secondItem="Bue-FW-Ip2" secondAttribute="leading" id="9lf-os-Abh"/>
+                                    <constraint firstItem="Bue-FW-Ip2" firstAttribute="top" secondItem="dm3-G8-VxO" secondAttribute="top" id="F3q-WP-lfs"/>
+                                    <constraint firstItem="dm3-G8-VxO" firstAttribute="trailing" secondItem="Bue-FW-Ip2" secondAttribute="trailing" id="Mb9-Ay-G8V"/>
+                                    <constraint firstItem="dm3-G8-VxO" firstAttribute="width" secondItem="ZsN-NT-OZA" secondAttribute="width" id="XOg-KM-SKW"/>
+                                    <constraint firstItem="dm3-G8-VxO" firstAttribute="height" secondItem="ZsN-NT-OZA" secondAttribute="height" id="YJK-ey-AHq"/>
+                                    <constraint firstAttribute="bottom" secondItem="dm3-G8-VxO" secondAttribute="bottom" id="jxF-X6-dt5"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Bue-FW-Ip2"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="ZsN-NT-OZA"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="backgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8gi-zI-gk1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="0KM-NX-CqY"/>
+                            <constraint firstItem="8gi-zI-gk1" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="3iV-xy-Ccb"/>
+                            <constraint firstItem="8gi-zI-gk1" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="6w7-mB-OLa"/>
+                            <constraint firstAttribute="bottom" secondItem="8gi-zI-gk1" secondAttribute="bottom" id="cC8-es-O14"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="clubsView" destination="cxa-Ae-Ccp" id="LDm-sa-CKe"/>
+                        <outlet property="filterView" destination="x6M-CU-aEq" id="r3J-lc-YoA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="109.82142857142857"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="backgroundColor">
+            <color red="0.9649999737739563" green="0.96899998188018799" blue="0.98400002717971802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
