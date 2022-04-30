@@ -1,6 +1,6 @@
 //
 //  AppRouter.swift
-//  MovieBox
+//  TransferMarktApp
 //
 //  Created by Ahmet Güvez on 5.03.2022.
 //
@@ -17,10 +17,10 @@ final class AppRouter {
     }
     
     func start(){
-        let viewController = MovieListBuilder.make()
-        let navigationController = UINavigationController(rootViewController: viewController)
+        let viewController = TabBarController()
+        //let navigationController = UINavigationController(rootViewController: viewController)
         
-        window.rootViewController = navigationController
+        window.rootViewController = viewController
         window.makeKeyAndVisible()
     }
     
