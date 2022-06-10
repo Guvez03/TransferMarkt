@@ -33,5 +33,4 @@ final class ClubsPresenter: ClubsPresenterProtocol, ClubsInteractorDelegate {
             view.handleOutput(.showClubs(clubs))
         }
     }
-    
 }

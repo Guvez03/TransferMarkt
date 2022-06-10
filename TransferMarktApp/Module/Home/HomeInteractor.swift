@@ -14,8 +14,6 @@ final class HomeInteractor: HomeInterectorProtocol {
         
         let machesReq = MatchesRequest(id: "631")
         let newsReq = EmptyRequest()
-
-        // WEAK SELF NEDİR
         
         HomeService.fetchNews(request: newsReq) { [weak self] response, error in
             guard let self = self , let response = response else { return }

@@ -24,6 +24,8 @@ enum ActionHelper {
     case matches
     case clubs
     case lineUps
+    case playerInfo
+    case profile
 }
 
 extension ActionHelper {
@@ -37,8 +39,13 @@ extension ActionHelper {
             return "matches/list-by-club"
         case .clubs:
             return "clubs/list-by-competition"
-        case.lineUps:
+        case .lineUps:
             return "matches/get-line-ups"
+        case .playerInfo:
+            return "players/get-market-value"
+        case .profile:
+            return "players/get-profile"
+
         }
     }
 }

@@ -7,9 +7,6 @@
 
 import Foundation
 
-// Tüm HTTP parametre tiplerini decode etmemizi sağlar
-// Http requestlerinde karışık tiplere sahipsek kullanışlı olur
-
 enum HTTPParameter: CustomStringConvertible, Decodable {
     case string(String)
     case bool(Bool)

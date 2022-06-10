@@ -31,7 +31,7 @@ class FilterView: UIView, CustomViewProtocol {
         initiliaze()
     }
     
-    func initiliaze(){
+    private func initiliaze(){
         commonInit(for: nibName())
         createPickerView()
         textField.placeholder = "Lig Seç"
@@ -53,7 +53,7 @@ class FilterView: UIView, CustomViewProtocol {
         toolBar.isUserInteractionEnabled = true
         textField.inputAccessoryView = toolBar
     }
-    @objc func dismissPicker() {
+    @objc private func dismissPicker() {
         contentView.endEditing(true)
         delegate?.filterBtnTapped(selectedLig: selectedLig?.rawValue ?? "")
     }

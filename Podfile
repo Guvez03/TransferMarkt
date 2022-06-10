@@ -7,5 +7,5 @@ target 'TransferMarktApp' do
 
   # Pods for TransferMarktApp
   pod 'Kingfisher', '~> 7.0'
-
+  pod 'Charts'
 end

@@ -7,8 +7,6 @@
 
 import Foundation
 
-// data modeller neden struct yapılır
-
 struct APIRequest <T: Codable> {
     let action: ActionHelper
     let data: T?
