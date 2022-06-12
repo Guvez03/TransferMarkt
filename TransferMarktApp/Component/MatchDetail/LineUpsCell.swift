@@ -13,14 +13,14 @@ enum ClubSelected {
     case away
 }
 
-protocol HomeAwaySegmentCellDelegate {
+protocol LineUpsCellDelegate {
     func segmentedDidselect(selected: ClubSelected)
 }
 
-class HomeAwaySegmentCell: UITableViewCell,Reuseable{
+class LineUpsCell: UITableViewCell,Reuseable{
     
     @IBOutlet weak var segmented: UISegmentedControl!
-    var delegate: HomeAwaySegmentCellDelegate?
+    var delegate: LineUpsCellDelegate?
     
     override class func awakeFromNib() {
         super.awakeFromNib()

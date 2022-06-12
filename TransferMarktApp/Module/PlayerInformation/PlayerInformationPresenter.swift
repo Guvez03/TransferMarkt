@@ -23,7 +23,6 @@ final class PlayerInformationPresenter: PlayerInformationPresenterProtocol{
     
     func load() {
         interactor.delegate = self
-        view.handleOutput(.loadTitle)
         interactor.load(playerId: player?.id ?? "")
     }
     
@@ -37,8 +36,9 @@ extension PlayerInformationPresenter: PlayerInformationInteractorDelegate {
             view.handleOutput(.loadCharts(playerMarketValue: playerMarketValue))
         case .loadProfile(let profile):
             view.handleOutput(.loadProfile(profile: profile))
-        case .loadTitle:
-            break
+        case .loadTitle(let playerName):
+            view.handleOutput(.loadTitle(playerName: playerName))
+
         }
     }
     

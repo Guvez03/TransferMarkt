@@ -8,7 +8,7 @@
 import Foundation
 
 enum MatchDetailInteractorOutput {
-    case loadResults
+    case loadResult
     case loadLineUps(LineUPSResponse?)
 }
 
@@ -23,13 +23,13 @@ protocol MatchDetailInteractorDelegate {
 
 enum MatchDetailPresenterOutput {
     case loadTitle
-    case loadResults(PlayClubMatch?)
+    case loadResult(PlayClubMatch?)
     case loadLineUps(LineUPSResponse?)
 }
  
 protocol MatchDetailPresenterProtocol {
     func loadLineUps()
-    func load()
+    func loadResult()
     func playerDetail(player: Bank?)
 }
 

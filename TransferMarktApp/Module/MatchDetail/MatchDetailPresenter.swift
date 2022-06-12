@@ -23,8 +23,8 @@ class MatchDetailPresenter: MatchDetailPresenterProtocol {
         self.clubMatch = clubMatch
     }
     
-    func load(){
-        view.handleOutput(.loadResults(clubMatch))
+    func loadResult(){
+        view.handleOutput(.loadResult(clubMatch))
     }
     
     func loadLineUps() {
@@ -40,7 +40,7 @@ class MatchDetailPresenter: MatchDetailPresenterProtocol {
 extension MatchDetailPresenter: MatchDetailInteractorDelegate {
     func handleOutput(_ output: MatchDetailInteractorOutput) {
         switch output {
-        case .loadResults:
+        case .loadResult:
             break
         case .loadLineUps(let lineUps):
             view.handleOutput(.loadLineUps(lineUps))

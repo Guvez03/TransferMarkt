@@ -49,7 +49,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" name="backgroundColor"/>
+                        <color key="backgroundColor" name="blue"/>
                         <constraints>
                             <constraint firstItem="8gi-zI-gk1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="0KM-NX-CqY"/>
                             <constraint firstItem="8gi-zI-gk1" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="3iV-xy-Ccb"/>
@@ -68,8 +68,8 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="backgroundColor">
-            <color red="0.9649999737739563" green="0.96899998188018799" blue="0.98400002717971802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="blue">
+            <color red="0.22352941176470587" green="0.28235294117647058" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

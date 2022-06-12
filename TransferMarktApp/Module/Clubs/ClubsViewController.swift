@@ -10,14 +10,20 @@ import UIKit
 
 class ClubsViewController: UIViewController{
     
-    @IBOutlet weak var clubsView: ClubsView!
-    @IBOutlet weak var filterView: FilterView!
+    @IBOutlet private weak var clubsView: ClubsView!
+    @IBOutlet private weak var filterView: FilterView!
     var presenter: ClubsPresenterProtocol?
-    var clubs: Clubs?
+    private var clubs: Clubs?
     
     override func viewDidLoad() {
-        filterView.delegate = self
+        setUp()
         presenter?.load(selectedLig: LigName.TR1.rawValue)
+    }
+    
+    private func setUp(){
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        filterView.delegate = self
     }
 }
 
@@ -25,8 +31,8 @@ extension ClubsViewController: ClubsViewProtocol {
     
     func handleOutput(_ handleOutput: ClubsPresenterOutput) {
         switch handleOutput {
-        case .loadTitle(let string):
-            self.title = string
+        case .loadTitle(let title):
+            self.title = title
         case .showClubs(let clubs):
             self.clubs = clubs
             self.clubsView.clubs = clubs

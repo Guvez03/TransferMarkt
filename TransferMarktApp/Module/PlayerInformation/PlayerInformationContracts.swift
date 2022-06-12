@@ -15,7 +15,7 @@ protocol PlayerInformationInteractorProtocol {
 enum PlayerInformationInreactorOutput {
     case loadCharts(playerMarketValue: PlayerInformation?)
     case loadProfile(profile: ProfileResponse?)
-    case loadTitle
+    case loadTitle(playerName: String)
 }
 
 protocol PlayerInformationInteractorDelegate{
@@ -29,7 +29,7 @@ protocol PlayerInformationPresenterProtocol {
 enum PlayerInformationPresenterOutput {
     case loadCharts(playerMarketValue: PlayerInformation?)
     case loadProfile(profile: ProfileResponse?)
-    case loadTitle
+    case loadTitle(playerName: String)
 }
 
 protocol PlayerInformationViewProtocol{

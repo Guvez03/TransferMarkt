@@ -9,9 +9,6 @@ import Foundation
 import UIKit
 
 final class ClubsRouter: ClubsRouterProtocol{
-    func navigate(to route: ClubsRoute) {
-        
-    }
     
     unowned let view: UIViewController
     
@@ -19,4 +16,6 @@ final class ClubsRouter: ClubsRouterProtocol{
         self.view = view
     }
     
+    func navigate(to route: ClubsRoute) {}
+
 }

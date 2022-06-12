@@ -11,22 +11,25 @@ import UIKit
 class MatchDetailViewController: UIViewController{
 
     var presenter: MatchDetailPresenterProtocol?
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     private var clubMatch: PlayClubMatch?
     private var lineUps: LineUPSResponse?
     private var clubsSelected: ClubSelected?
 
     override func viewDidLoad() {
      super.viewDidLoad()
+        setUp()
+        presenter?.loadResult()
+        presenter?.loadLineUps()
+    }
+    
+    private func setUp(){
         tableView.delegate = self
         tableView.dataSource = self
         tableView.registerCell(type: ResultCell.self)
-        tableView.registerCell(type: HomeAwaySegmentCell.self)
+        tableView.registerCell(type: LineUpsCell.self)
         tableView.registerCell(type: PlayerCell.self)
-
-        presenter?.load()
-        presenter?.loadLineUps()
-
+        tableView.separatorInset = .zero
     }
 }
 
@@ -35,7 +38,7 @@ extension MatchDetailViewController: MatchDetailViewProtocol {
         switch output {
         case .loadTitle:
             break
-        case .loadResults(let clubMatch):
+        case .loadResult(let clubMatch):
             self.clubMatch = clubMatch
         case .loadLineUps(let lineUps):
             self.lineUps = lineUps
@@ -73,10 +76,11 @@ extension MatchDetailViewController: UITableViewDelegate, UITableViewDataSource 
         case 0:
             let cell: ResultCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
             cell.configure(match: clubMatch)
+            cell.backgroundColor = .clear
             return cell
         case 1:
-            let cell: HomeAwaySegmentCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
-            cell.backgroundColor = UIColor.appColor(.lightGray)
+            let cell: LineUpsCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
+            cell.backgroundColor = UIColor.appColor(.blue)
             cell.delegate = self
             return cell
         case 2:
@@ -91,9 +95,8 @@ extension MatchDetailViewController: UITableViewDelegate, UITableViewDataSource 
             }
             
             let cell: PlayerCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
-            cell.backgroundColor = UIColor.appColor(.lightGray)
-            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
-            
+            cell.backgroundColor = UIColor.appColor(.blue)
+
             if let lineUpsValue = lineUpsValues {
                 for (index, item) in lineUpsValue.enumerated() {
                     if indexPath.row == index {
@@ -112,6 +115,8 @@ extension MatchDetailViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
+        case 0:
+            return 150
         case 1:
             return 100
         case 2:
@@ -137,10 +142,7 @@ extension MatchDetailViewController: UITableViewDelegate, UITableViewDataSource 
             if let lineUpsValue = lineUpsValues {
                 for (index, item) in lineUpsValue.enumerated() {
                     if indexPath.row == index {
-                        
                         presenter?.playerDetail(player: item)
-
-                        
                     }
                 }
                 
@@ -149,10 +151,10 @@ extension MatchDetailViewController: UITableViewDelegate, UITableViewDataSource 
     }
 }
 
-extension MatchDetailViewController: HomeAwaySegmentCellDelegate {
+extension MatchDetailViewController: LineUpsCellDelegate {
     func segmentedDidselect(selected: ClubSelected) {
-            self.clubsSelected = selected
-            self.tableView.reloadData()
+        self.clubsSelected = selected
+        self.tableView.reloadData()
     }
 }
- 
+

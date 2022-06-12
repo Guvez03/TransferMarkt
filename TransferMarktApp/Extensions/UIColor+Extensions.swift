@@ -15,6 +15,11 @@ enum AssetsColor: String {
     case greenColor
     case grayColor
     case lightGray
+    case gray
+    case selectedOrange
+    case blue
+    case darkBlue
+    case lightGray2
 }
 extension UIColor {
     static func appColor(_ name: AssetsColor) -> UIColor? {

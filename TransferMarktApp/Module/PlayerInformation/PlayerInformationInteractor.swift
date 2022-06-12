@@ -29,6 +29,7 @@ final class PlayerInformationInteractor: PlayerInformationInteractorProtocol {
                 guard let self = self, let response = response else {return}
                 DispatchQueue.main.async {
                     self.delegate?.handleOutput(.loadProfile(profile: response))
+                    self.delegate?.handleOutput(.loadTitle(playerName: response.playerProfile?.playerName ?? ""))
                 }
             }
         }

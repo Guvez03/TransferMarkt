@@ -8,17 +8,22 @@
 import UIKit
 
 final class HomeViewController: UIViewController {
-    @IBOutlet weak var bannerView: BannerView!
-    @IBOutlet weak var resultView: ResultView!
-    @IBOutlet weak var newsHeaderView: HeaderView!
-    @IBOutlet weak var resultHeaderView: HeaderView!
+    @IBOutlet private weak var bannerView: BannerView!
+    @IBOutlet private weak var resultView: ResultView!
+    @IBOutlet private weak var newsHeaderView: HeaderView!
+    @IBOutlet private weak var resultHeaderView: HeaderView!
     var presenter: HomePresenterProtocol?
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // presenter
-        resultView.delegate = self
+        setUp()
         presenter?.load()
+    }
+    
+    private func setUp(){
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        resultView.delegate = self
     }
 }
 

@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,130 +31,130 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="zSJ-a8-5vf">
-                                                <rect key="frame" x="0.0" y="250" width="414" height="646"/>
+                                                <rect key="frame" x="20" y="270" width="374" height="626"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="55" translatesAutoresizingMaskIntoConstraints="NO" id="cqb-bm-VDQ">
-                                                        <rect key="frame" x="20" y="8" width="162" height="596"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="162" height="626"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doğum tarihi:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9KU-aA-hdw">
-                                                                <rect key="frame" x="0.0" y="0.0" width="162" height="26.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="162" height="30"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" name="whiteColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doğum yeri:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agV-AK-fO6">
-                                                                <rect key="frame" x="0.0" y="81.5" width="162" height="26.5"/>
+                                                                <rect key="frame" x="0.0" y="85" width="162" height="30.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" name="whiteColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yaş:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYU-nA-ohO">
-                                                                <rect key="frame" x="0.0" y="163" width="162" height="26"/>
+                                                                <rect key="frame" x="0.0" y="170.5" width="162" height="30"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" name="whiteColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Boy:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8U-ru-mOM">
-                                                                <rect key="frame" x="0.0" y="244" width="162" height="26.5"/>
+                                                                <rect key="frame" x="0.0" y="255.5" width="162" height="30"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" name="whiteColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uyruk:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V59-6t-J5P">
-                                                                <rect key="frame" x="0.0" y="325.5" width="162" height="26.5"/>
+                                                                <rect key="frame" x="0.0" y="340.5" width="162" height="30"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" name="whiteColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mevki:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Frp-Xw-kHW">
-                                                                <rect key="frame" x="0.0" y="407" width="162" height="26.5"/>
+                                                                <rect key="frame" x="0.0" y="425.5" width="162" height="30.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" name="whiteColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ayak:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebh-eu-wps">
-                                                                <rect key="frame" x="0.0" y="488.5" width="162" height="26"/>
+                                                                <rect key="frame" x="0.0" y="511" width="162" height="30"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" name="whiteColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Güncel kulüp:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8mU-sP-ALF">
-                                                                <rect key="frame" x="0.0" y="569.5" width="162" height="26.5"/>
+                                                                <rect key="frame" x="0.0" y="596" width="162" height="30"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" name="whiteColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="55" translatesAutoresizingMaskIntoConstraints="NO" id="PEa-TE-ATR">
-                                                        <rect key="frame" x="232" y="8" width="162" height="596"/>
+                                                        <rect key="frame" x="212" y="0.0" width="162" height="626"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SYG-li-gsC">
-                                                                <rect key="frame" x="0.0" y="0.0" width="162" height="26.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="162" height="30"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" name="selectedOrange"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVn-DT-Q1h">
-                                                                <rect key="frame" x="0.0" y="81.5" width="162" height="26.5"/>
+                                                                <rect key="frame" x="0.0" y="85" width="162" height="30.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" name="selectedOrange"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8PJ-WV-c9e">
-                                                                <rect key="frame" x="0.0" y="163" width="162" height="26"/>
+                                                                <rect key="frame" x="0.0" y="170.5" width="162" height="30"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" name="selectedOrange"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nI-wZ-gmX">
-                                                                <rect key="frame" x="0.0" y="244" width="162" height="26.5"/>
+                                                                <rect key="frame" x="0.0" y="255.5" width="162" height="30"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" name="selectedOrange"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fck-gR-VA0">
-                                                                <rect key="frame" x="0.0" y="325.5" width="162" height="26.5"/>
+                                                                <rect key="frame" x="0.0" y="340.5" width="162" height="30"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" name="selectedOrange"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G1W-7D-Qw6">
-                                                                <rect key="frame" x="0.0" y="407" width="162" height="26.5"/>
+                                                                <rect key="frame" x="0.0" y="425.5" width="162" height="30.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" name="selectedOrange"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pb0-m1-3Bn">
-                                                                <rect key="frame" x="0.0" y="488.5" width="162" height="26"/>
+                                                                <rect key="frame" x="0.0" y="511" width="162" height="30"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" name="selectedOrange"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AMC-3V-oKM">
-                                                                <rect key="frame" x="0.0" y="569.5" width="162" height="26.5"/>
+                                                                <rect key="frame" x="0.0" y="596" width="162" height="30"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" name="selectedOrange"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
-                                                <edgeInsets key="layoutMargins" top="8" left="20" bottom="8" right="20"/>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="zSJ-a8-5vf" firstAttribute="top" secondItem="Tjz-HU-4Mf" secondAttribute="bottom" id="6v9-cb-aXm"/>
-                                            <constraint firstAttribute="trailing" secondItem="zSJ-a8-5vf" secondAttribute="trailing" id="9AM-Ti-ese"/>
+                                            <constraint firstAttribute="trailing" secondItem="zSJ-a8-5vf" secondAttribute="trailing" constant="20" id="5Tt-WE-aIv"/>
+                                            <constraint firstItem="zSJ-a8-5vf" firstAttribute="top" secondItem="Tjz-HU-4Mf" secondAttribute="bottom" constant="20" id="6v9-cb-aXm"/>
                                             <constraint firstItem="Tjz-HU-4Mf" firstAttribute="leading" secondItem="Yha-41-GCn" secondAttribute="leading" id="ajh-BD-rrq"/>
                                             <constraint firstAttribute="bottom" secondItem="zSJ-a8-5vf" secondAttribute="bottom" id="aoE-Ev-Ukz"/>
                                             <constraint firstAttribute="trailing" secondItem="Tjz-HU-4Mf" secondAttribute="trailing" id="eeE-SJ-Gpd"/>
                                             <constraint firstItem="Tjz-HU-4Mf" firstAttribute="top" secondItem="Yha-41-GCn" secondAttribute="top" id="i6c-do-2j3"/>
-                                            <constraint firstItem="zSJ-a8-5vf" firstAttribute="leading" secondItem="Yha-41-GCn" secondAttribute="leading" id="rAj-0q-BSL"/>
+                                            <constraint firstItem="zSJ-a8-5vf" firstAttribute="leading" secondItem="Yha-41-GCn" secondAttribute="leading" constant="20" id="lEJ-r7-D2T"/>
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="Yha-41-GCn" secondAttribute="bottom" id="BZb-j6-HVc"/>
                                     <constraint firstAttribute="trailing" secondItem="Yha-41-GCn" secondAttribute="trailing" id="JhB-Qu-zIe"/>
@@ -165,7 +166,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="blue"/>
                         <constraints>
                             <constraint firstItem="AOc-yT-hNw" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="HDV-Uk-oMa"/>
                             <constraint firstItem="AOc-yT-hNw" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="W80-yj-E9L"/>
@@ -191,6 +192,15 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="blue">
+            <color red="0.22352941176470587" green="0.28235294117647058" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="selectedOrange">
+            <color red="0.92549019607843142" green="0.59999999999999998" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="whiteColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

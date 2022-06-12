@@ -10,28 +10,40 @@ import UIKit
 import Charts
 
 final class PlayerInformationViewController: UIViewController {
-    @IBOutlet weak var lineChartView: LineChartView!
+    @IBOutlet private weak var lineChartView: LineChartView!
     var presenter: PlayerInformationPresenterProtocol?
     
-    @IBOutlet weak var lblBirthDate: UILabel!
-    @IBOutlet weak var lblBirthPlace: UILabel!
-    @IBOutlet weak var lblAge: UILabel!
-    @IBOutlet weak var lblLength: UILabel!
-    @IBOutlet weak var lblCountry: UILabel!
-    @IBOutlet weak var lblPositionGroup: UILabel!
-    @IBOutlet weak var lblFoot: UILabel!
-    @IBOutlet weak var lblClub: UILabel!
+    @IBOutlet private weak var lblBirthDate: UILabel!
+    @IBOutlet private weak var lblBirthPlace: UILabel!
+    @IBOutlet private weak var lblAge: UILabel!
+    @IBOutlet private weak var lblLength: UILabel!
+    @IBOutlet private weak var lblCountry: UILabel!
+    @IBOutlet private weak var lblPositionGroup: UILabel!
+    @IBOutlet private weak var lblFoot: UILabel!
+    @IBOutlet private weak var lblClub: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        lineChartView.backgroundColor = .lightGray
+        navigationController?.navigationBar.prefersLargeTitles = true
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
+
+        setUpChart()
+        presenter?.load()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
+    private func setUpChart(){
+        lineChartView.backgroundColor = UIColor.appColor(.darkBlue)
+        lineChartView.borderColor = .orange
+        lineChartView.xAxis.labelTextColor = UIColor.appColor(.selectedOrange) ?? .orange
         lineChartView.rightAxis.enabled = false
         lineChartView.leftAxis.enabled = false
-        
         lineChartView.xAxis.labelPosition = .bottom
-
-        presenter?.load()
     }
 }
 
@@ -41,15 +53,15 @@ extension PlayerInformationViewController: PlayerInformationViewProtocol {
         case .loadCharts(let playerMarketValue):
             loadCharts(playerMarketValue: playerMarketValue)
             break
-        case .loadTitle:
-            self.title = "CHARTS"
-        case .loadProfile(profile: let profile):
+        case .loadTitle(let playerName):
+            self.title = playerName
+        case .loadProfile(let profile):
             setProfileData(profile: profile)
         }
     }
     
     
-    func setProfileData(profile: ProfileResponse?){
+   private func setProfileData(profile: ProfileResponse?){
         guard let profile = profile else {return}
 
         lblBirthDate.text = profile.playerProfile?.dateOfBirth
@@ -62,13 +74,13 @@ extension PlayerInformationViewController: PlayerInformationViewProtocol {
         lblClub.text = profile.playerProfile?.club
     }
     
-    func loadCharts(playerMarketValue: PlayerInformation?){
+    private func loadCharts(playerMarketValue: PlayerInformation?){
         
         var arr: [Double] = []
-        guard let playerMarketValue = playerMarketValue?.marketValueDevelopment else {return}
+        guard let playerMarketValue = playerMarketValue?.marketValueDevelopment?.reduce([],{ [$1] + $0 }) else {return}
 
         for item in playerMarketValue {
-            arr.append(Double(item.marketValueUnformatted ?? 0) )
+            arr.append(Double(item.marketValueUnformatted?.formatPoints() ?? 0) )
         }
         
         self.setDataCount(arr.count,values:arr)
@@ -76,7 +88,7 @@ extension PlayerInformationViewController: PlayerInformationViewProtocol {
     }
     
     
-    func setDataCount(_ count: Int, values:[Double]) {
+    private func setDataCount(_ count: Int, values:[Double]) {
 
         let yVals = (0..<count).map { (i) -> ChartDataEntry in
 
@@ -87,6 +99,10 @@ extension PlayerInformationViewController: PlayerInformationViewProtocol {
 
         let set1 = LineChartDataSet(entries: yVals, label: "€")
         set1.drawIconsEnabled = false
+        set1.circleRadius = 1
+        set1.setCircleColor(.clear)
+        set1.setColor(.orange)
+        set1.valueTextColor = UIColor.appColor(.greenColor) ?? .green
 
         let data = LineChartData(dataSet: set1)
 
@@ -96,6 +112,5 @@ extension PlayerInformationViewController: PlayerInformationViewProtocol {
         let xAxis = lineChartView.xAxis
         xAxis.setLabelCount(yVals.count, force: false)
     }
-    
 }
 

@@ -11,38 +11,37 @@ import UIKit
 enum Builder {
     case homeBuilder
     case clubsBuilder
+    
+    var title: String {
+        switch self {
+        case .homeBuilder:
+            return "Home"
+        case .clubsBuilder:
+            return "Clubs"
+        }
+    }
 }
 
-class TabBarController: UITabBarController {
+final class TabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBar.layer.masksToBounds = true
-        self.tabBar.barStyle = .black
-        self.tabBar.barTintColor = .white
-        self.tabBar.tintColor = UIColor.appColor(.selectedColor)
-        self.tabBar.layer.shadowColor = UIColor.appColor(.selectedColor)?.cgColor
-        self.tabBar.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-        self.tabBar.layer.shadowRadius = 3
-        self.tabBar.layer.shadowOpacity = 1
-        self.tabBar.layer.masksToBounds = false
-        TabBarController.tabbarItemApperance()
-
+        
+        self.tabBar.tintColor = UIColor.appColor(.selectedOrange)
         if #available(iOS 15.0, *) {
-            let appearance = UITabBarAppearance()
-            appearance.configureWithOpaqueBackground()
-            appearance.backgroundColor = UIColor.appColor(.backgroundColor)
-
-            UITabBar.appearance().standardAppearance = appearance
-            UITabBar.appearance().scrollEdgeAppearance = appearance
+            TabBarController.tabbarItemApperance()
+        }else{
+            self.tabBarController?.tabBar.barTintColor =  UIColor.appColor(.blue)
+            self.tabBarController?.tabBar.unselectedItemTintColor = .lightText
+            self.tabBarController?.tabBar.tintColor = .white
         }
         setupTabBar()
     }
     
     func setupTabBar(){
         
-        let homeViewController =  createNavController(builder: Builder.homeBuilder, image: "star", selectedImage: "star.fill")
-        let playersViewController =  createNavController(builder: Builder.clubsBuilder, image: "star", selectedImage: "star.fill")
+        let homeViewController =  createNavController(builder: Builder.homeBuilder, image: "home-empty-icon", selectedImage: "home-fill-icon")
+        let playersViewController =  createNavController(builder: Builder.clubsBuilder, image: "clubs-empty-icon" , selectedImage: "clubs-fill-icon")
         
         viewControllers = [homeViewController,playersViewController]
         
@@ -51,7 +50,6 @@ class TabBarController: UITabBarController {
         for item in items {
             item.imageInsets = UIEdgeInsets(top: 4, left: 0, bottom: -4, right: 0)
         }
-        
     }
 }
 
@@ -62,23 +60,22 @@ extension UITabBarController {
             return  homeStart(image: image, selectedImage: selectedImage)
         case .clubsBuilder:
             return   clubsStart(image: image, selectedImage: selectedImage)
-        default:
-            return  UINavigationController()
+
         }
     }
     
-    func homeStart(image: String, selectedImage: String) -> UINavigationController{
+    private func homeStart(image: String, selectedImage: String) -> UINavigationController{
         let viewController = UINavigationController(rootViewController: HomeBuilder.make())
-        viewController.tabBarItem.image = UIImage(named: "home-empty-icon")
-        viewController.tabBarItem.title = "Home"
-        viewController.tabBarItem.selectedImage = UIImage(named: "home-fill-icon")
+        viewController.tabBarItem.image = UIImage(named: image)?.withTintColor(.white)
+        viewController.tabBarItem.title = Builder.homeBuilder.title
+        viewController.tabBarItem.selectedImage = UIImage(named: selectedImage)?.withTintColor(.orange)
         return viewController
     }
-    func clubsStart(image: String, selectedImage: String) -> UINavigationController{
+    private func clubsStart(image: String, selectedImage: String) -> UINavigationController{
         let viewController = UINavigationController(rootViewController: ClubsBuilder.make())
-        viewController.tabBarItem.image = UIImage(named: "clubs-empty-icon")
-        viewController.tabBarItem.title = NSLocalizedString("Clubs", comment: "")
-        viewController.tabBarItem.selectedImage = UIImage(named: "clubs-fill-icon")
+        viewController.tabBarItem.image = UIImage(named: image)?.withTintColor(.white)
+        viewController.tabBarItem.title = Builder.clubsBuilder.title
+        viewController.tabBarItem.selectedImage = UIImage(named: selectedImage)?.withTintColor(.orange)
         return viewController
         
     }
@@ -87,12 +84,20 @@ extension UITabBarController {
 extension TabBarController {
 
     static func tabbarItemApperance() {
-        let selectedFontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14),
-                                      NSAttributedString.Key.foregroundColor: UIColor.appColor(.selectedColor)]
-        UITabBarItem.appearance().setTitleTextAttributes(selectedFontAttributes as [NSAttributedString.Key : Any], for: .selected)
-        let fontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14),
-                              NSAttributedString.Key.foregroundColor: UIColor.appColor(.pinkColor)]
-
-        UITabBarItem.appearance().setTitleTextAttributes(fontAttributes as [NSAttributedString.Key : Any], for: .disabled)
+            let appearance = UITabBarAppearance()
+            appearance.configureWithDefaultBackground()
+            appearance.backgroundColor =  UIColor.appColor(.blue)
+            
+            appearance.compactInlineLayoutAppearance.normal.iconColor = .lightText
+            appearance.compactInlineLayoutAppearance.normal.titleTextAttributes = [.foregroundColor : UIColor.white]
+            
+            appearance.inlineLayoutAppearance.normal.iconColor = .lightText
+            appearance.inlineLayoutAppearance.normal.titleTextAttributes = [.foregroundColor : UIColor.white]
+            
+            appearance.stackedLayoutAppearance.normal.iconColor = .lightText
+            appearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor : UIColor.white]
+            
+            UITabBar.appearance().standardAppearance = appearance
+            UITabBar.appearance().scrollEdgeAppearance = appearance
     }
 }
