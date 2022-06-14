@@ -12,7 +12,6 @@ struct ProfileResponse: Codable {
     let playerProfile: PlayerProfile?
 }
 
-// MARK: - PlayerProfile
 struct PlayerProfile: Codable {
     let playerID: String?
     let playerImage: String?

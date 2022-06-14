@@ -17,12 +17,10 @@ class BannerCell: UICollectionViewCell,Reuseable{
     
     @IBOutlet weak var contView: UIView!
  
-    // neişe yarıyor
     override class func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    // neişe yarıyor
     override func layoutSubviews() {
         super.layoutSubviews()
         contView.layer.cornerRadius = 10

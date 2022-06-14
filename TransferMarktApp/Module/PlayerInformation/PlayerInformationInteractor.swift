@@ -32,9 +32,7 @@ final class PlayerInformationInteractor: PlayerInformationInteractorProtocol {
                     self.delegate?.handleOutput(.loadTitle(playerName: response.playerProfile?.playerName ?? ""))
                 }
             }
-        }
-        
-        
+        }        
     }
     
     

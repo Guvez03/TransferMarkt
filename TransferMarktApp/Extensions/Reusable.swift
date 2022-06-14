@@ -7,9 +7,6 @@
 
 import UIKit
 
-// incele
-
-
 protocol Reuseable: AnyObject {
     static var reuseIdentifier: String { get }
 }

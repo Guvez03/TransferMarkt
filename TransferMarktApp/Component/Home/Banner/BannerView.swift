@@ -37,7 +37,7 @@ class BannerView: UIView,CustomViewProtocol {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         collectionView.registerCell(type: BannerCell.self)
-        //collectionView?.register(UINib(nibName: "BannerCell", bundle: nil), forCellWithReuseIdentifier: "BannerCell")
+
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.minimumLineSpacing = 10
             layout.minimumInteritemSpacing = 10

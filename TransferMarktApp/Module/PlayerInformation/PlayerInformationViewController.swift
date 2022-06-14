@@ -24,17 +24,20 @@ final class PlayerInformationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationController?.navigationBar.prefersLargeTitles = true
-        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
-        navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
-
+        setUp()
         setUpChart()
         presenter?.load()
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
+    private func setUp(){
+        navigationController?.navigationBar.prefersLargeTitles = true
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
+
     }
     
     private func setUpChart(){
@@ -52,15 +55,15 @@ extension PlayerInformationViewController: PlayerInformationViewProtocol {
         switch output {
         case .loadCharts(let playerMarketValue):
             loadCharts(playerMarketValue: playerMarketValue)
-            break
         case .loadTitle(let playerName):
             self.title = playerName
         case .loadProfile(let profile):
             setProfileData(profile: profile)
         }
     }
-    
-    
+}
+
+extension PlayerInformationViewController {
    private func setProfileData(profile: ProfileResponse?){
         guard let profile = profile else {return}
 
@@ -97,7 +100,7 @@ extension PlayerInformationViewController: PlayerInformationViewProtocol {
             return ChartDataEntry(x: Double(i), y: val)
         }
 
-        let set1 = LineChartDataSet(entries: yVals, label: "€")
+        let set1 = LineChartDataSet(entries: yVals, label: "million")
         set1.drawIconsEnabled = false
         set1.circleRadius = 1
         set1.setCircleColor(.clear)

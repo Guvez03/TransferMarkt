@@ -29,7 +29,6 @@ final class ClubsPresenter: ClubsPresenterProtocol, ClubsInteractorDelegate {
         
         switch handleOutput {
         case .showClubs(let clubs):
-            // normalde presentation gönderilir sonradan düzelt
             view.handleOutput(.showClubs(clubs))
         }
     }

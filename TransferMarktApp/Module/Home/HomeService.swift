@@ -26,7 +26,6 @@ struct HomeService {
     
     static func fetchNews(request: EmptyRequest, completionHandler: @escaping (_ response: News?, _ error: ErrorModel?) -> Swift.Void){
          
-        // api request data boş göndermeyi dene
          let request = APIRequest(action: ActionHelper.news, data: request)
 
          NetworkManager.shared.service(request: request) { (response: Swift.Result<News, ErrorModel>) in
@@ -43,7 +42,6 @@ struct HomeService {
     
     static func fetchMatches(request: MatchesRequest, completionHandler: @escaping (_ response: Matches?, _ error: ErrorModel?) -> Swift.Void){
          
-        // api request data boş göndermeyi dene
          let request = APIRequest(action: ActionHelper.matches, data: request)
 
          NetworkManager.shared.service(request: request) { (response: Swift.Result<Matches, ErrorModel>) in

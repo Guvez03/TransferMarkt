@@ -242,7 +242,6 @@
 		6552A97327ECC674003C9B9F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				6575DF0A27DA787900631243 /* AppDelegate.swift */,
 				65A15F2E280B55F10038A876 /* UIColor+Extensions.swift */,
 				6552A97427ECC690003C9B9F /* UIView+Extension.swift */,
 				6552A97627ECC717003C9B9F /* Reusable.swift */,
@@ -395,6 +394,7 @@
 		6575DF2127DA78F700631243 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				6575DF0A27DA787900631243 /* AppDelegate.swift */,
 				65FA48C8281D53C90019242C /* AppContainer.swift */,
 				65FA48C7281D53C90019242C /* AppRouter.swift */,
 			);

@@ -7,7 +7,4 @@
 
 import Foundation
 
-struct EmptyRequest:Codable {
-    
-    
-}
+struct EmptyRequest:Codable {}

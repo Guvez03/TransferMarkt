@@ -28,12 +28,11 @@ final class TabBarController: UITabBarController {
         super.viewDidLoad()
         
         self.tabBar.tintColor = UIColor.appColor(.selectedOrange)
+        
         if #available(iOS 15.0, *) {
             TabBarController.tabbarItemApperance()
         }else{
             self.tabBarController?.tabBar.barTintColor =  UIColor.appColor(.blue)
-            self.tabBarController?.tabBar.unselectedItemTintColor = .lightText
-            self.tabBarController?.tabBar.tintColor = .white
         }
         setupTabBar()
     }
@@ -60,7 +59,7 @@ extension UITabBarController {
             return  homeStart(image: image, selectedImage: selectedImage)
         case .clubsBuilder:
             return   clubsStart(image: image, selectedImage: selectedImage)
-
+            
         }
     }
     
@@ -82,22 +81,22 @@ extension UITabBarController {
 }
 
 extension TabBarController {
-
+    
     static func tabbarItemApperance() {
-            let appearance = UITabBarAppearance()
-            appearance.configureWithDefaultBackground()
-            appearance.backgroundColor =  UIColor.appColor(.blue)
-            
-            appearance.compactInlineLayoutAppearance.normal.iconColor = .lightText
-            appearance.compactInlineLayoutAppearance.normal.titleTextAttributes = [.foregroundColor : UIColor.white]
-            
-            appearance.inlineLayoutAppearance.normal.iconColor = .lightText
-            appearance.inlineLayoutAppearance.normal.titleTextAttributes = [.foregroundColor : UIColor.white]
-            
-            appearance.stackedLayoutAppearance.normal.iconColor = .lightText
-            appearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor : UIColor.white]
-            
-            UITabBar.appearance().standardAppearance = appearance
-            UITabBar.appearance().scrollEdgeAppearance = appearance
+        let appearance = UITabBarAppearance()
+        appearance.configureWithDefaultBackground()
+        appearance.backgroundColor =  UIColor.appColor(.blue)
+        
+        appearance.compactInlineLayoutAppearance.normal.iconColor = .lightText
+        appearance.compactInlineLayoutAppearance.normal.titleTextAttributes = [.foregroundColor : UIColor.white]
+        
+        appearance.inlineLayoutAppearance.normal.iconColor = .lightText
+        appearance.inlineLayoutAppearance.normal.titleTextAttributes = [.foregroundColor : UIColor.white]
+        
+        appearance.stackedLayoutAppearance.normal.iconColor = .lightText
+        appearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor : UIColor.white]
+        
+        UITabBar.appearance().standardAppearance = appearance
+        UITabBar.appearance().scrollEdgeAppearance = appearance
     }
 }

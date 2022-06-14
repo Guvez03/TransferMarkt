@@ -11,7 +11,6 @@ protocol ResultViewDelegate {
     func resultDidSelect(index: Int)
 }
 
-// final class nedir
  final class ResultView: UIView, CustomViewProtocol {
     
     @IBOutlet var contentView: UIView!
@@ -25,13 +24,11 @@ protocol ResultViewDelegate {
          }
      }
      
-     // nedir
      override init(frame: CGRect) {
          super.init(frame: frame)
          initialize()
      }
      
-     // nedir
       required init?(coder: NSCoder) {
          super.init(coder: coder)
           initialize()

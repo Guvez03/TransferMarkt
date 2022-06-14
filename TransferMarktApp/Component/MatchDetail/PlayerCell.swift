@@ -25,9 +25,7 @@ class PlayerCell: UITableViewCell, Reuseable {
     }
 
     func configure(lineUps: Bank?){
-        guard let lineUps = lineUps else {
-            return
-        }
+        guard let lineUps = lineUps else { return }
         imgPlayer.kf.setImage(with: URL(string: lineUps.playerImage ?? ""))
         lblPlayerName.text = "\(lineUps.firstName ?? "") \(lineUps.lastName ?? "")"
         lblplayerNumber.text = lineUps.number

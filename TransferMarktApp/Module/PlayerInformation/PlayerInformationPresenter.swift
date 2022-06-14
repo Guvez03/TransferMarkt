@@ -40,7 +40,5 @@ extension PlayerInformationPresenter: PlayerInformationInteractorDelegate {
             view.handleOutput(.loadTitle(playerName: playerName))
 
         }
-    }
-    
-    
+    }    
 }

@@ -8,7 +8,6 @@
 import UIKit
 
 
-// incele
 protocol CustomViewProtocol {
     var contentView: UIView! {get}
     func commonInit(for customViewName: String)

@@ -20,13 +20,11 @@ final class ResultCell: UITableViewCell, Reuseable {
     @IBOutlet weak var lblAwayClubName: UILabel!
     @IBOutlet weak var lblAway: UILabel!
     
-    // neişe yarıyor
     override func awakeFromNib() {
         super.awakeFromNib()
         initialize()
     }
     
-    // neişe yarıyor
     override func layoutSubviews() {
         super.layoutSubviews()
 

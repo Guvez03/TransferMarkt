@@ -11,7 +11,6 @@ final class ClubService {
     
     static func fetchClubs(request: ClubsRequest, completionHandler: @escaping (_ response: Clubs?, _ error: ErrorModel?) -> Swift.Void){
          
-        // api request data boş göndermeyi dene
         let request = APIRequest(action: ActionHelper.clubs, data: request)
 
          NetworkManager.shared.service(request: request) { (response: Swift.Result<Clubs, ErrorModel>) in

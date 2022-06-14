@@ -35,7 +35,6 @@ final class HomePresenter: HomePresenterProtocol{
 extension HomePresenter: HomeInteractorDelegate {
     func handleOutput(_ output: HomeInteractorOutput) {
         switch output {
-        // PRESENTATİON NASIL YAPILIR İNCELE
         case .showMatches(let matches):
             let presentation =  MatchesPresentation(id: matches.id, clubName: matches.clubName, playClubMatches: matches.playClubMatches)
             view.handleOutput(.showMatches(presentation))

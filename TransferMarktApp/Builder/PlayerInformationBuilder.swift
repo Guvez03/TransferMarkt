@@ -9,7 +9,6 @@ import UIKit
 
 class PlayerInformationBuilder {
     static func make(with player: Bank?) -> PlayerInformationViewController {
-        
         let storyboard = UIStoryboard(name: "PlayerInformation", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "PlayerInformationViewController") as! PlayerInformationViewController
         

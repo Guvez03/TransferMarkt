@@ -34,7 +34,7 @@ class FilterView: UIView, CustomViewProtocol {
     private func initiliaze(){
         commonInit(for: nibName())
         createPickerView()
-        textField.text = LigName.TR1.ligName
+        textField.placeholder = "Lig Seçin"
     }
     
     private func createPickerView(){
