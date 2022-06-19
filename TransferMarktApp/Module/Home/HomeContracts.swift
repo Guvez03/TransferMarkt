@@ -19,6 +19,7 @@ enum HomeInteractorOutput{
     case showMatches(Matches)
     case showNews(News)
     case showMatchesDetail(PlayClubMatch?)
+    case loading(Bool)
 }
 
 protocol HomeInteractorDelegate {
