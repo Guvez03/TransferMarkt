@@ -7,13 +7,12 @@
 
 import UIKit
 
-final class HomeViewController: UIViewController {
+final class HomeViewController: BaseVC {
     @IBOutlet private weak var bannerView: BannerView!
     @IBOutlet private weak var resultView: ResultView!
     @IBOutlet private weak var newsHeaderView: HeaderView!
     @IBOutlet private weak var resultHeaderView: HeaderView!
     var presenter: HomePresenterProtocol?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
@@ -30,6 +29,8 @@ final class HomeViewController: UIViewController {
 extension HomeViewController: HomeViewProtocol {
     func handleOutput(_ output: HomePresenterOutput) {
         switch output {
+        case .loading(let isLoad):
+            updateActivityIndicator(isLoad: isLoad)
         case.loadTitle(let title):
             self.title = title
         case .showMatches(let matchesPresentation):

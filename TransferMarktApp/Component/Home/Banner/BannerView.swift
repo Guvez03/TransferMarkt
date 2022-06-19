@@ -12,7 +12,7 @@ class BannerView: UIView,CustomViewProtocol {
     
     @IBOutlet var contentView: UIView!
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private weak var collectionView: UICollectionView!
     
     var news: [NewsElement] = [] {
         didSet {

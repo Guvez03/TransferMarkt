@@ -19,7 +19,7 @@ protocol LineUpsCellDelegate {
 
 class LineUpsCell: UITableViewCell,Reuseable{
     
-    @IBOutlet weak var segmented: UISegmentedControl!
+    @IBOutlet private weak var segmented: UISegmentedControl!
     var delegate: LineUpsCellDelegate?
     
     override class func awakeFromNib() {

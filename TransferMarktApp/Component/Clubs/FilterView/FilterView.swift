@@ -13,13 +13,13 @@ protocol FilterViewDelegate{
 
 class FilterView: UIView, CustomViewProtocol {
     @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet private weak var textField: UITextField!
     
     var delegate: FilterViewDelegate?
     
     private var selectedLig: LigName?
     private lazy var pickerView = UIPickerView()
-    private lazy var ligs = LigName.allCases
+    private var ligs = LigName.allCases
     
     override init(frame: CGRect) {
         super.init(frame: frame)

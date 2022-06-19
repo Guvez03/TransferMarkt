@@ -22,6 +22,7 @@ protocol MatchDetailInteractorDelegate {
 }
 
 enum MatchDetailPresenterOutput {
+    case loading(Bool)
     case loadTitle
     case loadResult(PlayClubMatch?)
     case loadLineUps(LineUPSResponse?)

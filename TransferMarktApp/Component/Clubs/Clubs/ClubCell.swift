@@ -10,10 +10,10 @@ import UIKit
 
 final class ClubCell: UICollectionViewCell, Reuseable {
     
-    @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var clubImage: UIImageView!
-    @IBOutlet weak var lblClubName: UILabel!
-    @IBOutlet weak var lblView: UIView!
+    @IBOutlet private weak var containerView: UIView!
+    @IBOutlet private weak var clubImage: UIImageView!
+    @IBOutlet private weak var lblClubName: UILabel!
+    @IBOutlet private weak var lblView: UIView!
     
     override  func awakeFromNib() {
         super.awakeFromNib()
@@ -23,6 +23,12 @@ final class ClubCell: UICollectionViewCell, Reuseable {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+    }
+    
+    func configure(club: Club?){
+        clubImage.kf.setImage(with: URL(string: club?.image ?? ""))
+        lblClubName.text = club?.name
+        
     }
 }
 

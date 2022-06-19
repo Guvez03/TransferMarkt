@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ClubsViewController: UIViewController{
+class ClubsViewController: BaseVC{
     
     @IBOutlet private weak var clubsView: ClubsView!
     @IBOutlet private weak var filterView: FilterView!
@@ -31,6 +31,8 @@ extension ClubsViewController: ClubsViewProtocol {
     
     func handleOutput(_ handleOutput: ClubsPresenterOutput) {
         switch handleOutput {
+        case .laoding(let isLoad):
+            updateActivityIndicator(isLoad: isLoad)
         case .loadTitle(let title):
             self.title = title
         case .showClubs(let clubs):

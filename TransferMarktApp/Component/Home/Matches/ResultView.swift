@@ -14,7 +14,7 @@ protocol ResultViewDelegate {
  final class ResultView: UIView, CustomViewProtocol {
     
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
      var delegate: ResultViewDelegate?
      var matches: MatchesPresentation? {
          didSet{

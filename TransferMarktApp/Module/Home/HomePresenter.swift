@@ -21,6 +21,7 @@ final class HomePresenter: HomePresenterProtocol{
     }
 
     func load() {
+        view.handleOutput(.loading(true))
         view.handleOutput(.loadViewTitle("Latest News", "Results"))
         view.handleOutput(.loadTitle("Home"))
         interactor.load()
@@ -38,9 +39,11 @@ extension HomePresenter: HomeInteractorDelegate {
         case .showMatches(let matches):
             let presentation =  MatchesPresentation(id: matches.id, clubName: matches.clubName, playClubMatches: matches.playClubMatches)
             view.handleOutput(.showMatches(presentation))
+            view.handleOutput(.loading(false))
         case .showNews(let news):
             let presentation = NewsPresentation(news: news.news)
             view.handleOutput(.showNews(presentation))
+            view.handleOutput(.loading(false))
         case.showMatchesDetail(let clubMatch):
             router.navigate(to: .detail(clubMatches: clubMatch))
         }

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import Charts
 
-final class PlayerInformationViewController: UIViewController {
+final class PlayerInformationViewController: BaseVC {
     @IBOutlet private weak var lineChartView: LineChartView!
     var presenter: PlayerInformationPresenterProtocol?
     
@@ -37,22 +37,27 @@ final class PlayerInformationViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
-
     }
     
     private func setUpChart(){
         lineChartView.backgroundColor = UIColor.appColor(.darkBlue)
         lineChartView.borderColor = .orange
-        lineChartView.xAxis.labelTextColor = UIColor.appColor(.selectedOrange) ?? .orange
+//        lineChartView.xAxis.labelTextColor = UIColor.appColor(.selectedOrange) ?? .orange
         lineChartView.rightAxis.enabled = false
-        lineChartView.leftAxis.enabled = false
+        lineChartView.leftAxis.enabled = true
+        lineChartView.leftAxis.axisLineColor = UIColor.appColor(.selectedOrange) ?? .orange
+        lineChartView.leftAxis.labelTextColor = UIColor.appColor(.selectedOrange) ?? .orange
         lineChartView.xAxis.labelPosition = .bottom
+        lineChartView.xAxis.enabled = false
+        
     }
 }
 
 extension PlayerInformationViewController: PlayerInformationViewProtocol {
     func handleOutput(_ output: PlayerInformationPresenterOutput) {
         switch output {
+        case .loading(let isLoad):
+            updateActivityIndicator(isLoad: isLoad)
         case .loadCharts(let playerMarketValue):
             loadCharts(playerMarketValue: playerMarketValue)
         case .loadTitle(let playerName):
@@ -100,18 +105,24 @@ extension PlayerInformationViewController {
             return ChartDataEntry(x: Double(i), y: val)
         }
 
-        let set1 = LineChartDataSet(entries: yVals, label: "million")
-        set1.drawIconsEnabled = false
-        set1.circleRadius = 1
-        set1.setCircleColor(.clear)
-        set1.setColor(.orange)
-        set1.valueTextColor = UIColor.appColor(.greenColor) ?? .green
+        let set1 = LineChartDataSet(entries: yVals, label: "million (€)")
+//        set1.drawIconsEnabled = true
+        set1.drawValuesEnabled = false
+        set1.drawCirclesEnabled = true
+        set1.circleRadius = 2
+        set1.setCircleColor(.white)
+        set1.setColor(UIColor.appColor(.selectedOrange) ?? .orange)
+        set1.highlightLineDashLengths = [8.0, 4.0]
+        set1.highlightColor = UIColor.appColor(.selectedOrange) ?? .orange
+        set1.highlightLineWidth = 2.0
+       //set1.valueTextColor = UIColor.appColor(.greenColor) ?? .green
 
         let data = LineChartData(dataSet: set1)
 
         data.setValueFont(UIFont(name:"HelveticaNeue-Light", size:10)!)
         lineChartView.data = data
-        
+        lineChartView.legend.textColor = UIColor.appColor(.selectedOrange) ?? .orange
+
         let xAxis = lineChartView.xAxis
         xAxis.setLabelCount(yVals.count, force: false)
     }

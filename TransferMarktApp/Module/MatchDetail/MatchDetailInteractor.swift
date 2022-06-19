@@ -18,6 +18,7 @@ class MatchDetailInteractor: MatchDetailInteractorProtocol{
             if error == nil {
                 guard let response = response else {return}
                 self.delegate?.handleOutput(.loadLineUps(response))
+                self.delegate?.handleOutput(.loadResult)
             }
         }
     }

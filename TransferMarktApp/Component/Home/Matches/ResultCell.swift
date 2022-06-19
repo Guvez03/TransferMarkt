@@ -10,16 +10,16 @@ import Kingfisher
 
 final class ResultCell: UITableViewCell, Reuseable {
     
-    @IBOutlet weak var viewContent: UIView!
-    @IBOutlet weak var lblGoalsHome: UILabel!
-    @IBOutlet weak var lblGoalsAway: UILabel!
-    @IBOutlet weak var imgHomeClub: UIImageView!
-    @IBOutlet weak var imgAwayClub: UIImageView!
-    @IBOutlet weak var lblHomeClubName: UILabel!
-    @IBOutlet weak var lblHome: UILabel!
-    @IBOutlet weak var lblAwayClubName: UILabel!
-    @IBOutlet weak var lblAway: UILabel!
-    
+    @IBOutlet private weak var viewContent: UIView!
+    @IBOutlet private weak var lblGoalsHome: UILabel!
+    @IBOutlet private weak var lblGoalsAway: UILabel!
+    @IBOutlet private weak var imgHomeClub: UIImageView!
+    @IBOutlet private weak var imgAwayClub: UIImageView!
+    @IBOutlet private weak var lblHomeClubName: UILabel!
+    @IBOutlet private weak var lblHome: UILabel!
+    @IBOutlet private weak var lblAwayClubName: UILabel!
+    @IBOutlet private weak var lblAway: UILabel!
+     
     override func awakeFromNib() {
         super.awakeFromNib()
         initialize()

@@ -21,6 +21,7 @@ final class ClubsPresenter: ClubsPresenterProtocol, ClubsInteractorDelegate {
     }
     
     func load(selectedLig: String) {
+        view.handleOutput(.laoding(true))
         view.handleOutput(.loadTitle("Clubs"))
         interactor.load(selectedLig: selectedLig)
     }
@@ -30,6 +31,7 @@ final class ClubsPresenter: ClubsPresenterProtocol, ClubsInteractorDelegate {
         switch handleOutput {
         case .showClubs(let clubs):
             view.handleOutput(.showClubs(clubs))
+            view.handleOutput(.laoding(false))
         }
     }
 }

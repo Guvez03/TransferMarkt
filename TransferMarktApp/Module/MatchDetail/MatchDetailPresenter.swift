@@ -24,7 +24,7 @@ class MatchDetailPresenter: MatchDetailPresenterProtocol {
     }
     
     func loadResult(){
-        view.handleOutput(.loadResult(clubMatch))
+        view.handleOutput(.loading(true))
     }
     
     func loadLineUps() {
@@ -41,9 +41,11 @@ extension MatchDetailPresenter: MatchDetailInteractorDelegate {
     func handleOutput(_ output: MatchDetailInteractorOutput) {
         switch output {
         case .loadResult:
-            break
+            view.handleOutput(.loadResult(clubMatch))
+            view.handleOutput(.loading(false))
         case .loadLineUps(let lineUps):
             view.handleOutput(.loadLineUps(lineUps))
+            view.handleOutput(.loading(false))
         }
     }
 }

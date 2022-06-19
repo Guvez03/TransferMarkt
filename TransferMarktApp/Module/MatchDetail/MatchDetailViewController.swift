@@ -8,16 +8,16 @@
 import Foundation
 import UIKit
 
-class MatchDetailViewController: UIViewController{
-
+class MatchDetailViewController: BaseVC{
+    
     var presenter: MatchDetailPresenterProtocol?
     @IBOutlet private weak var tableView: UITableView!
     private var clubMatch: PlayClubMatch?
     private var lineUps: LineUPSResponse?
     private var clubsSelected: ClubSelected?
-
+    
     override func viewDidLoad() {
-     super.viewDidLoad()
+        super.viewDidLoad()
         setUp()
         presenter?.loadResult()
         presenter?.loadLineUps()
@@ -36,6 +36,8 @@ class MatchDetailViewController: UIViewController{
 extension MatchDetailViewController: MatchDetailViewProtocol {
     func handleOutput(_ output: MatchDetailPresenterOutput) {
         switch output {
+        case .loading(let isLoad):
+            updateActivityIndicator(isLoad: isLoad)
         case .loadTitle:
             break
         case .loadResult(let clubMatch):
@@ -50,13 +52,12 @@ extension MatchDetailViewController: MatchDetailViewProtocol {
 }
 
 extension MatchDetailViewController: UITableViewDelegate, UITableViewDataSource {
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
         switch section {
         case 0:
             return 1
@@ -67,9 +68,8 @@ extension MatchDetailViewController: UITableViewDelegate, UITableViewDataSource 
         default:
             return 0
         }
-        
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch indexPath.section {
@@ -84,30 +84,11 @@ extension MatchDetailViewController: UITableViewDelegate, UITableViewDataSource 
             cell.delegate = self
             return cell
         case 2:
-            var lineUpsValues: Dictionary<String, Bank>.Values?
-            switch clubsSelected {
-            case .away:
-                lineUpsValues = Array(arrayLiteral: lineUps?.formations?.away?.start)[0]?.values
-            case .home:
-                lineUpsValues = Array(arrayLiteral: lineUps?.formations?.home?.start)[0]?.values
-            case .none:
-                lineUpsValues = Array(arrayLiteral: lineUps?.formations?.home?.start)[0]?.values
-            }
-            
             let cell: PlayerCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
             cell.backgroundColor = UIColor.appColor(.blue)
-
-            if let lineUpsValue = lineUpsValues {
-                for (index, item) in lineUpsValue.enumerated() {
-                    if indexPath.row == index {
-                        cell.configure(lineUps: item)
-                    }
-                }
-            }
-            
-            lineUpsValues = nil
+            let player = Utils.parseDictionary(clubsSelected: clubsSelected, lineUps: lineUps, indexPath: indexPath)
+            cell.configure(player: player)
             return cell
-
         default:
             return UITableViewCell()
         }
@@ -127,26 +108,9 @@ extension MatchDetailViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-         MARK : // Refactor
-        
         if indexPath.section == 2 {
-            var lineUpsValues: Dictionary<String, Bank>.Values?
-            switch clubsSelected {
-            case .away:
-                lineUpsValues = Array(arrayLiteral: lineUps?.formations?.away?.start)[0]?.values
-            case .home:
-                lineUpsValues = Array(arrayLiteral: lineUps?.formations?.home?.start)[0]?.values
-            case .none:
-                lineUpsValues = Array(arrayLiteral: lineUps?.formations?.home?.start)[0]?.values
-            }
-            if let lineUpsValue = lineUpsValues {
-                for (index, item) in lineUpsValue.enumerated() {
-                    if indexPath.row == index {
-                        presenter?.playerDetail(player: item)
-                    }
-                }
-                
-            }
+            let player = Utils.parseDictionary(clubsSelected: clubsSelected, lineUps: lineUps, indexPath: indexPath)
+            presenter?.playerDetail(player: player)
         }
     }
 }

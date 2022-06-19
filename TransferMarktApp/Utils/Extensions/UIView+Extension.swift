@@ -34,4 +34,15 @@ extension UIView {
     }
 }
 
+extension UIView {
+    func setUpActivityIndicatorView(){
+        var activityIndicatorView: ActivityIndicatorView!
+        activityIndicatorView = ActivityIndicatorView(frame: .zero)
+        activityIndicatorView.center = self.center
+        self.addSubview(activityIndicatorView)
+    }
+}
+
+    
+
 

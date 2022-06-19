@@ -32,6 +32,7 @@ protocol HomePresenterProtocol: AnyObject{
 }
 
 enum HomePresenterOutput {
+    case loading(Bool)
     case loadTitle(String)
     case loadViewTitle(String,String)
     case showMatches(MatchesPresentation)

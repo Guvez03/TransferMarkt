@@ -11,9 +11,9 @@ import Kingfisher
 
 class BannerCell: UICollectionViewCell,Reuseable{
         
-    @IBOutlet weak var newImage: UIImageView!
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var newName: UILabel!
+    @IBOutlet private weak var newImage: UIImageView!
+    @IBOutlet private weak var name: UILabel!
+    @IBOutlet private weak var newName: UILabel!
     
     @IBOutlet weak var contView: UIView!
  

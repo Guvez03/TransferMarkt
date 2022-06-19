@@ -26,6 +26,7 @@ protocol ClubsPresenterProtocol {
 }
 
 enum ClubsPresenterOutput{
+    case laoding(Bool)
     case loadTitle(String)
     case showClubs(Clubs)
 }

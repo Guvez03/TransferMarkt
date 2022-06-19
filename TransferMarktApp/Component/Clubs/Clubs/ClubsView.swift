@@ -11,7 +11,7 @@ import UIKit
 class ClubsView: UIView, CustomViewProtocol {
     
     @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private weak var collectionView: UICollectionView!
 
     var clubs: Clubs? {
         didSet {
@@ -40,7 +40,7 @@ class ClubsView: UIView, CustomViewProtocol {
         layout.itemSize = CGSize(width: collectionView.frame.width/3, height: collectionView.frame.width/3)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 10
-        collectionView!.collectionViewLayout = layout        
+        collectionView.collectionViewLayout = layout        
     }
 }
 
@@ -53,8 +53,7 @@ extension ClubsView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: ClubCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
         let club = clubs?.clubs?[indexPath.row]
-        cell.clubImage.kf.setImage(with: URL(string: club?.image ?? ""))
-        cell.lblClubName.text = club?.name
+        cell.configure(club: club)
         return cell
     }
 }
