@@ -28,7 +28,7 @@ protocol PlayerInformationPresenterProtocol {
 
 enum PlayerInformationPresenterOutput {
     case loading(Bool)
-    case loadCharts(playerMarketValue: PlayerInformation?)
+    case loadCharts(data: NSObject?)
     case loadProfile(profile: ProfileResponse?)
     case loadTitle(playerName: String)
 }
